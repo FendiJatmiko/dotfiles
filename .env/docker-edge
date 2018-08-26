@@ -1,0 +1,1 @@
+export PATH=$PATH:/opt/docker-ce-edge/:/opt/docker-compose-1.16.1:/opt/docker-machine-0.13.0
