@@ -65,7 +65,7 @@ augroup END
 set rtp+=~/.vim/bundle/Vundle.vim
 
 
-
+filetype off
 "-------------- PLUGINS STARTS -----------------
 call vundle#begin()
 
@@ -83,7 +83,6 @@ Plugin 'xolox/vim-easytags'
 Plugin 'majutsushi/tagbar'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-scripts/a.vim'
-Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 Plugin 'svermeulen/vim-easyclip'
@@ -100,17 +99,26 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'SirVer/ultisnips'
 Plugin 'wesQ3/vim-windowswap'
 Plugin 'Yggdroot/indentLine'
-Plugin 'prettier/vim-prettier'
 Plugin 'digitaltoad/vim-pug'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
-
-
+" from mas rud
+"Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'myusuf3/numbers.vim'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'rking/ag.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'prettier/vim-prettier', {
+            \ 'do': 'yarn install',
+            \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'javascript.jsx'] }
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
+Plugin 'othree/html5.vim'
 
 call vundle#end()  
 "-------------- PLUGINS END --------------------
-filetype plugin indent on
+filetype on
+"filetype plugin indent on
 
 
 "----- GENERAL SETTINGS-------
@@ -118,10 +126,14 @@ set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline_detect_paste=1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='solarized'
+let g:airline_theme='murmur'
 set background=dark
 let g:solarized_termcolors=256
-colorscheme solarized
+"colorscheme solarized
+" Configure symbol
+if !exists('g:airline_symbols')
+   let g:airline_symbols = {}
+endif
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<enter+ctrl>"
@@ -207,6 +219,14 @@ let g:syntastic_go_checkers = ['govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 " Vim-go
+" GoLang settings.
+autocmd FileType go nmap <Leader>gdc <Plug>(go-doc)
+autocmd FileType go nmap <Leader>goi <Plug>(go-info)
+
+autocmd FileType go nnoremap <Leader>god :GoDecls<CR>
+autocmd FileType go nnoremap <Leader>gor :GoDeclsDir<CR>
+autocmd FileType go nnoremap <Leader>gsi :GoSameIds<CR>
+autocmd FileType go nnoremap <Leader>gsc :GoSameIdsClear<CR>
 let g:go_list_type = "quickfix"
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -215,12 +235,20 @@ let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
+let g:go_highlight_extra_types = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_generate_tags = 1
 
 " Vim JSX
 " JSX syntax highlighting support only on .jsx file extension by default. This
 " configuration is to enable jsx syntax highlighting on .js files too.
 let g:jsx_ext_required = 0
 
+"let g:deoplete#enable_at_startup = 1
+"let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+"let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+
+let g:javascript_plugin_jsdoc = 1
 "tagbar
 nmap <F8> :TagbarToggle<CR>
 " cTags from https://stackoverflow.com/questions/563616/vim-and-ctags-tips-and-tricks
