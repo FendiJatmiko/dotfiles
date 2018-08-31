@@ -53,6 +53,7 @@ Plugin 'prettier/vim-prettier', {
 Plugin 'honza/vim-snippets'
 Plugin 'othree/html5.vim'
 Plugin 'xolox/vim-misc'
+Plugin 'ludovicchabant/vim-gutentags'
 
 call vundle#end()
 
@@ -72,7 +73,7 @@ set fileformats=unix,dos,mac
 set noshowmatch
 set noshowmode
 set nocursorcolumn
-set cursorline
+"set cursorline
 set lazyredraw
 
 set noet nowrap tw=0 ww=0
