@@ -2,7 +2,6 @@
 
 " Arch defaults
 runtime! archlinux.vim
-
 set nocompatible
 set smartindent
 set backspace=indent,eol,start
@@ -11,7 +10,7 @@ set showcmd
 set incsearch
 set hlsearch 
 set modeline
-set relativenumber          " enable relative number
+set relativenumber          " enable relative number"
 set clipboard^=unnamedplus  " system clipboard (requires +clipboard)
 set number                  " enable line numbers
 set confirm                 " ask confirmation for some things, like save before quit, etc.
@@ -78,8 +77,6 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-easytags'
 Plugin 'majutsushi/tagbar'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-scripts/a.vim'
@@ -114,6 +111,7 @@ Plugin 'prettier/vim-prettier', {
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 Plugin 'othree/html5.vim'
+Plugin 'xolox/vim-misc'
 
 call vundle#end()  
 "-------------- PLUGINS END --------------------
@@ -161,14 +159,14 @@ augroup END
 
 
 "-------- TAGS SETTINGS --------------------------------
-let g:easytags_events = ['BufReadPost', 'BufWritePost']
-let g:easytags_async = 1
-let g:easytags_dynamic_files = 2
-let g:easytags_resolve_links = 1
-let g:easytags_suppress_ctags_warning = 1
-let g:tagbar_autoclose=2
+"let g:easytags_events = ['BufReadPost', 'BufWritePost']
+"let g:easytags_async = 1
+"let g:easytags_dynamic_files = 2
+"let g:easytags_resolve_links = 1
+"let g:easytags_suppress_ctags_warning = 1
+"let g:tagbar_autoclose=2
 
-nmap <silent> <leader>b :TagbarToggle<CR>
+"nmap <silent> <leader>b :TagbarToggle<CR>
 "
 "autocmd BufEnter * nested :call tagbar#autoopen(0)
 "autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
