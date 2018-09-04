@@ -1,70 +1,74 @@
+" set Somethin
 set nocompatible               " be improved, required
 filetype off                   " required
-" set the runtime path to include Vundle and initialize
 set rtp+=~/.config/nvim/bundle/Vundle.vim
-
-" set Somethin
-set ruler
-set relativenumber
 " Vundle Begin
-call vundle#begin('~/.config/nvim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'fatih/vim-go'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'majutsushi/tagbar'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'vim-scripts/a.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-repeat'
-Plugin 'svermeulen/vim-easyclip'
-Plugin 'Raimondi/delimitMate'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'jez/vim-c0'
-Plugin 'jez/vim-ispc'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'vim-syntastic/syntastic'
+Plug 'VundleVim/Vundle.vim'
+Plug 'fatih/vim-go'
+Plug 'Valloric/YouCompleteMe'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'altercation/vim-colors-solarized'
+Plug 'scrooloose/nerdtree'
+Plug  'scrooloose/nerdcommenter'
+Plug  'jistr/vim-nerdtree-tabs'
+Plug  'majutsushi/tagbar'
+Plug  'ctrlpvim/ctrlp.vim'
+Plug  'vim-scripts/a.vim'
+Plug  'tpope/vim-fugitive'
+Plug  'tpope/vim-repeat'
+Plug 'tpope/vim-sleuth'
+Plug  'svermeulen/vim-easyclip'
+Plug  'Raimondi/delimitMate'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'jez/vim-c0'
+Plug 'jez/vim-ispc'
+Plug 'kchmck/vim-coffee-script'
+Plug 'flazz/vim-colorschemes'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'vim-syntastic/syntastic'
+Plug 'kaicataldo/material.vim'
 " Track the engine.
-Plugin 'SirVer/ultisnips'
-Plugin 'wesQ3/vim-windowswap'
-Plugin 'Yggdroot/indentLine'
-Plugin 'digitaltoad/vim-pug'
-Plugin 'nsf/gocode', {'rtp': 'vim/'}
+Plug 'SirVer/ultisnips'
+Plug 'wesQ3/vim-windowswap'
+Plug 'Yggdroot/indentLine'
+Plug 'digitaltoad/vim-pug'
+Plug 'nsf/gocode', {'rtp': 'vim/'}
 " from mas rud
-"Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plugin 'myusuf3/numbers.vim'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'rking/ag.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'prettier/vim-prettier', {
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'myusuf3/numbers.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'rking/ag.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'prettier/vim-prettier', {
             \ 'do': 'yarn install',
             \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'javascript.jsx'] }
 " Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
-Plugin 'othree/html5.vim'
-Plugin 'xolox/vim-misc'
-Plugin 'ludovicchabant/vim-gutentags'
+Plug 'honza/vim-snippets'
+Plug 'othree/html5.vim'
+Plug 'xolox/vim-misc'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'zchee/deoplete-go'
+Plug 'mdempsky/gocode', { 'rtp' : 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
 
-call vundle#end()
+call plug#end()
 
 filetype plugin indent on
 
+" set the runtime path to include Vundle and initialize
+set ruler
+set relativenumber
 set ttyfast
 set autoread
 set autoindent
-set backspace=indent,eol,start
+set backspace =indent,eol,start
+set background = "dark"
+colorscheme material 
 set laststatus=2
-"set hlsearch
 set noerrorbells
 set number
 set splitright
@@ -73,16 +77,18 @@ set fileformats=unix,dos,mac
 set noshowmatch
 set noshowmode
 set nocursorcolumn
-"set cursorline
+set cursorline
 set lazyredraw
-
 set noet nowrap tw=0 ww=0
-set tabstop=4 softtabstop=2 expandtab shiftwidth=2 smarttab
-
+set tabstop=2 softtabstop=2 expandtab shiftwidth=2 smarttab
 set nobackup
 set pastetoggle=<F5>
 set scrolloff=5
-
+set termguicolors
+" True color support
+if (has("nvim"))
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
 
 " Put plugins and dictionaries in this dir (also on Windows)
 let vimDir = '$HOME/.config/nvim'
@@ -98,7 +104,6 @@ map  <C-h> :tabp<CR>
 " Keep undo history across sessions by storing it in a file
 if has('persistent_undo')
     let myUndoDir = expand(vimDir . '/undodir')
-
     " Create dirs
     call system('mkdir ' . vimDir)
     call system('mkdir ' . myUndoDir)
@@ -108,7 +113,8 @@ endif
 
 " Vim status line settings
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'murmur'
+let g:airline_theme = 'material'
+"let g:material_theme_style = 'default' | 'palenight' | 'dark'
 " Populate proper symbol font
 let g:airline_powerline_fonts = 1
 " Configure symbol
