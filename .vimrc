@@ -68,6 +68,7 @@ filetype off
 "-------------- PLUGINS STARTS -----------------
 call vundle#begin()
 
+Plugin 'rakr/vim-one'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'fatih/vim-go'
 Plugin 'Valloric/YouCompleteMe'
@@ -128,6 +129,8 @@ let g:airline_theme='murmur'
 set background=dark
 let g:solarized_termcolors=256
 "colorscheme solarized
+colorscheme one
+set background=dark
 " Configure symbol
 if !exists('g:airline_symbols')
    let g:airline_symbols = {}
@@ -171,6 +174,8 @@ augroup END
 "autocmd BufEnter * nested :call tagbar#autoopen(0)
 "autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
 autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
+
+let mapleader=','
 
 
 "---------GIT SETTINGS--------------

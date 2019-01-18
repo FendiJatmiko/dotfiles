@@ -5,9 +5,10 @@ set rtp+=~/.config/nvim/bundle/Vundle.vim
 " Vundle Begin
 call plug#begin('~/.config/nvim/plugged')
 
+Plug 'rakr/vim-one'
 Plug 'VundleVim/Vundle.vim'
 Plug 'fatih/vim-go'
-Plug 'Valloric/YouCompleteMe'
+"Plug 'Valloric/YouCompleteMe'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'altercation/vim-colors-solarized'
@@ -67,7 +68,8 @@ set autoread
 set autoindent
 set backspace =indent,eol,start
 set background = "dark"
-colorscheme material 
+colorscheme one
+set background=dark
 set laststatus=2
 set noerrorbells
 set number
@@ -113,7 +115,7 @@ endif
 
 " Vim status line settings
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'material'
+let g:airline_theme = 'one'
 "let g:material_theme_style = 'default' | 'palenight' | 'dark'
 " Populate proper symbol font
 let g:airline_powerline_fonts = 1
@@ -202,6 +204,7 @@ let g:go_fmt_autosave = 0
 let g:go_def_mode = "godef"
 
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_complete_start_length=1
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 
