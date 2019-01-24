@@ -60,7 +60,7 @@ plugins=(
   osx
 )
 
-source $ZSH/oh-my-zsh.sh
+#source $ZSH/oh-my-zsh.sh
 
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history time)
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
@@ -72,3 +72,4 @@ if [[ $(print -P "%#") =~ "#" ]]; then
   user_symbol = "#"
 fi
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%{%B%F{black}%K{yellow}%}$user_symbol%{%b%f%k%F{yellow}%} %{%f%}"
+source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme

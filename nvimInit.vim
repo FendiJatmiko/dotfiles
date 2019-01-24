@@ -67,7 +67,7 @@ set ttyfast
 set autoread
 set autoindent
 set backspace =indent,eol,start
-set background = "dark"
+set background = dark
 colorscheme one
 set background=dark
 set laststatus=2
