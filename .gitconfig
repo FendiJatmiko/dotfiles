@@ -1,0 +1,12 @@
+[user]
+	name = fendi
+	email = fendi@mekar.id
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+
+;[url "git@github.AuthScureDevelopment.com:"]
+	;insteadOf = https://github.AuthScureDevelopment.com/
+
+[url "git@gitlab.mekar.io:"]
+	insteadOf = https://gitlab.mekar.io/
