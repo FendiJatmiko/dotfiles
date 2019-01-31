@@ -32,23 +32,17 @@ export WORKSPACE="$HOME/workSpace-01"
 # if you wanna switch back to go1.9 change goroot below to /usr/local/go 
 # to use go version 163 /usr/local/go163/go/bin
 export GOROOT=/usr/local/go
-export GOBIN="/home/archie/workSpace-01/golang/src/bin"
-export GOPATH="/home/archie/workSpace-01/golang/src"
-export WORK="$GOPATH/src/gitlab.mekar.io"
-export MINE="$GOPATH/src/github.com/fendijatmiko/fendtoryProject"
+#export GOBIN="/home/archie/workSpace-01/golang/bin"
+export GOPATH="/home/archie/workSpace-01/golang"
+export WORK="$GOPATH/src/gitlab.mekar.io/"
+export MINE="$GOPATH/src/gitlab.com/jatmikovic/"
 export GIT_TERMINAL_PROMPT=1
 #export liteide=/opt/liteide/bin/liteide
 export TEMP=/tmp/
 export PATH=$PATH:/usr/local/go/bin
-
-#unset GOBIN
-#export PATH=$PATH:$GOPATH/bin
-
-#export PATH="$HOME/.fastlane/bin/fastlane_lib:$PATH"
-
 export PATH=$PATH:$GOPATH/bin
-export VISUAL="vim"
-
+export VISUAL="nvim"
+export GO111MODULE=auto
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ZSH_THEME="powerlevel9k/powerlevel9k"
@@ -57,7 +51,6 @@ POWERLEVEL9K_MODE='nerdfont-complete'
 plugins=(
   zsh-autosuggestions
   git
-  osx
 )
 
 #source $ZSH/oh-my-zsh.sh
@@ -73,3 +66,4 @@ if [[ $(print -P "%#") =~ "#" ]]; then
 fi
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%{%B%F{black}%K{yellow}%}$user_symbol%{%b%f%k%F{yellow}%} %{%f%}"
 source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
+#xrandr --output eDP1 --auto --left-of DP1
